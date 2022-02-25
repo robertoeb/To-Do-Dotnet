@@ -1,21 +1,20 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
 
 namespace API.Entities
 {
-  public class TaskList
+  public class ToDoTask
   {
-    private string _tasks;
-
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
 
-    [MaxLength(50)]
-    [Required]
-    public string Name { get; set; }
+    public string Title { get; set; }
 
-    public ICollection<ToDoTask> Tasks { get; set; }
+    [DefaultValue(false)]
+    public bool Completed { get; set; }
+
+    public TaskList TaskList { get; set; }
   }
 }

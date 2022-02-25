@@ -9,10 +9,6 @@ namespace API.Data
 
     public DbSet<TaskList> TasksList { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-      modelBuilder.Entity<TaskList>()
-          .Property("_tasks");
-    }
+    public DbSet<ToDoTask> ToDoTasks { get; set; }
   }
 }
